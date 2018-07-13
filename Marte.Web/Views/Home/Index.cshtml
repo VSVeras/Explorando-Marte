@@ -1,0 +1,67 @@
+﻿<div class="jumbotron">
+
+    <form name="comandoForm">
+
+        <div class="page-header">Painel de Comandos</div>
+
+        <label class="form-inline">Digite os comandos seguido de ENTER, abaixo segue exemplo:</label>
+
+        <div class="form-group">
+            <p>5 5</p>
+            <p>1 2 N</p>
+            <p>LMLMLMLMM</p>
+            <p>3 3 E</p>
+            <p>MMRMMRMRRM</p>
+        </div>
+
+        <textarea class="form-control" rows="5" cols="50" name="conteudo" ng-required="true" ng_model="conteudo" placeholder="Digite os comandos a serem enviados para as sondas"></textarea>
+
+        <hr />
+
+        <button class="btn btn-info btn-block" ng-click="enviarComando(conteudo)"> Enviar </button>
+
+    </form>
+
+    <div class="ui-alerta" ng-show="mensagemErro.length > 0">
+        <div class="ui-alert-message">
+            {{mensagemErro}}
+        </div>
+    </div>
+
+    <div class="ui-alerta" ng-show="mensagemSucesso1.length > 0 || mensagemSucesso1.length > 0">
+        <div class="ui-alert-message">
+            <p ng-show="mensagemSucesso1.length > 0">{{mensagemSucesso1}}</p>
+            <p ng-show="mensagemSucesso2.length > 0">{{mensagemSucesso2}}</p>
+        </div>
+    </div>
+
+</div>
+
+<style>
+
+    .form-control {
+        display:inline-block; 
+    }
+
+    .jumbotron {
+        width: 500px;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ui-alerta {
+        background-color: aquamarine;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .ui-alert-message {
+        color: #0094ff;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
