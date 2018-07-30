@@ -32,7 +32,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
         {
             try
             {
-                if (sonda.EspecificacaoDeNegocio.HouveViolacao())
+                if (sonda.HouveViolacao())
                     return;
 
                 var sondaExiste = ObterPorNome(sonda.Nome);

@@ -47,7 +47,7 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.ObjetoDeValor
             var posicaoEsperada = new Posicao(0, 2);
             sonda.IniciarEm(posicaoDesejada, DirecaoCardinal.Norte);
 
-            Assert.IsTrue(sonda.EspecificacaoDeNegocio.HouveViolacao());
+            Assert.IsTrue(sonda.HouveViolacao());
             Assert.IsTrue(sonda.EspecificacaoDeNegocio.Contem(regraDeNegocio));
         }
     }

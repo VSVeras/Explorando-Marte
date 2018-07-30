@@ -44,7 +44,7 @@ namespace Marte.Testes.Integracao.Exploracao.Dominio.Entidade
 
             sondas.Gravar(sonda);
 
-            Assert.IsFalse(sonda.EspecificacaoDeNegocio.HouveViolacao());
+            Assert.IsFalse(sonda.HouveViolacao());
         }
 
         [TestMethod]

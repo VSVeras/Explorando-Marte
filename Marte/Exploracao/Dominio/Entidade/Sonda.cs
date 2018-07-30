@@ -45,6 +45,9 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         public Sonda(IEspecificacaoDeNegocio especificacaoDeNegocio, string nome) : this()
         {
+            if (especificacaoDeNegocio == null)
+                especificacaoDeNegocio = new EspecificacaoDeNegocio();
+
             EspecificacaoDeNegocio = especificacaoDeNegocio;
 
             if (string.IsNullOrWhiteSpace(nome))
@@ -55,6 +58,9 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         public void Explorar(IEspecificacaoDeNegocio especificacaoDeNegocio, Planalto planalto)
         {
+            if (especificacaoDeNegocio == null)
+                especificacaoDeNegocio = new EspecificacaoDeNegocio();
+
             EspecificacaoDeNegocio = especificacaoDeNegocio;
 
             if (planalto == null)
@@ -77,7 +83,6 @@ namespace Marte.Exploracao.Dominio.Entidade
             {
                 if (posicaoDesejada.X > Planalto.EixoX() | posicaoDesejada.Y > Planalto.EixoY())
                     EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("Posição fora da faixa (Malha do Planalto) para exploração."));
-
             }
 
             PosicaoAtual = posicaoDesejada;
@@ -92,6 +97,11 @@ namespace Marte.Exploracao.Dominio.Entidade
         public void Move(IMovimento movimento)
         {
             movimento.Executar(this);
+        }
+
+        public bool HouveViolacao()
+        {
+            return EspecificacaoDeNegocio.HouveViolacao();
         }
     }
 }

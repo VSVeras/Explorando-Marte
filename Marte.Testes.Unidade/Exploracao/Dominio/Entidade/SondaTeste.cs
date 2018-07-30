@@ -72,7 +72,7 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.Entidade
             sonda.Move(movimentoSempreParaFrente);
             sonda.Move(movimentoSempreParaFrente);
 
-            Assert.IsFalse(sonda.EspecificacaoDeNegocio.HouveViolacao());
+            Assert.IsFalse(sonda.HouveViolacao());
             Assert.AreEqual(posicaoEsperada, sonda.PosicaoAtual);
             Assert.AreEqual(DirecaoCardinal.Norte, sonda.DirecaoCardinalAtual);
         }
@@ -94,7 +94,7 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.Entidade
             sonda.Vire(DirecaoMovimento.Direita);
             sonda.Move(movimentoSempreParaFrente);
 
-            Assert.IsFalse(sonda.EspecificacaoDeNegocio.HouveViolacao());
+            Assert.IsFalse(sonda.HouveViolacao());
             Assert.AreEqual(posicaoEsperada, sonda.PosicaoAtual);
             Assert.AreEqual(DirecaoCardinal.Leste, sonda.DirecaoCardinalAtual);
         }
