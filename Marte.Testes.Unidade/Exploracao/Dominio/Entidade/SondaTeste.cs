@@ -21,11 +21,8 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.Entidade
             var coordenada = new Coordenada(5, 5);
             planalto = new Planalto();
             planalto.Criar(coordenada);
-
             movimentoSempreParaFrente = new MovimentoParaFrente();
-
             sonda = new Sonda(especificacaoDeNegocio, "Mark I");
-
             sonda.Explorar(especificacaoDeNegocio, planalto);
         }
 

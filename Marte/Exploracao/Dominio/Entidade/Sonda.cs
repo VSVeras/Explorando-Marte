@@ -29,9 +29,9 @@ namespace Marte.Exploracao.Dominio.Entidade
             direcaoSentidoHorario = new Dictionary<DirecaoCardinal, Action>
             {
                 {DirecaoCardinal.Norte, () => DirecaoCardinalAtual = DirecaoCardinal.Leste},
-                { DirecaoCardinal.Leste, () => DirecaoCardinalAtual = DirecaoCardinal.Sul},
+                {DirecaoCardinal.Leste, () => DirecaoCardinalAtual = DirecaoCardinal.Sul},
                 {DirecaoCardinal.Sul, () => DirecaoCardinalAtual = DirecaoCardinal.Oeste},
-                { DirecaoCardinal.Oeste, () => DirecaoCardinalAtual = DirecaoCardinal.Norte}
+                {DirecaoCardinal.Oeste, () => DirecaoCardinalAtual = DirecaoCardinal.Norte}
             };
 
             direcaoSentidoAntiHorario = new Dictionary<DirecaoCardinal, Action>
@@ -39,7 +39,7 @@ namespace Marte.Exploracao.Dominio.Entidade
                 {DirecaoCardinal.Norte, () => DirecaoCardinalAtual = DirecaoCardinal.Oeste},
                 {DirecaoCardinal.Oeste, () => DirecaoCardinalAtual = DirecaoCardinal.Sul},
                 {DirecaoCardinal.Sul, () => DirecaoCardinalAtual = DirecaoCardinal.Leste},
-                { DirecaoCardinal.Leste, () => DirecaoCardinalAtual = DirecaoCardinal.Norte}
+                {DirecaoCardinal.Leste, () => DirecaoCardinalAtual = DirecaoCardinal.Norte}
             };
         }
 
