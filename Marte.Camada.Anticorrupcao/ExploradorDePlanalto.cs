@@ -99,7 +99,7 @@ namespace Marte.CamadaAnticorrupcao
 
             Sonda sonda = ObterSonda(sondas, nomeDaSonda);
 
-            sonda.Explorar(especificacaoDeNegocio, planalto);
+            sonda.Explorar(planalto);
 
             sonda.IniciarEm(posicaoInicioalDaSonda, direcaoCardinalInicioalDaSonda);
 

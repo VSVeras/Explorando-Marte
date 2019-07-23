@@ -10,7 +10,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
 {
     public class Sondas : ISondas
     {
-        private IMongoDatabase BancoDeDados;
+        private readonly IMongoDatabase BancoDeDados;
 
         public Sondas(IMongoDatabase bancoDeDados)
         {

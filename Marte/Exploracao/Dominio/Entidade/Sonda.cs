@@ -56,13 +56,8 @@ namespace Marte.Exploracao.Dominio.Entidade
             Nome = nome;
         }
 
-        public void Explorar(IEspecificacaoDeNegocio especificacaoDeNegocio, Planalto planalto)
+        public void Explorar(Planalto planalto)
         {
-            if (especificacaoDeNegocio == null)
-                especificacaoDeNegocio = new EspecificacaoDeNegocio();
-
-            EspecificacaoDeNegocio = especificacaoDeNegocio;
-
             if (planalto == null)
                 EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("O planalto a ser explorado não foi informado."));
 
@@ -81,7 +76,7 @@ namespace Marte.Exploracao.Dominio.Entidade
             }
             else
             {
-                if (posicaoDesejada.X > Planalto.EixoX() | posicaoDesejada.Y > Planalto.EixoY())
+                if (posicaoDesejada.X > Planalto.EixoX() || posicaoDesejada.Y > Planalto.EixoY())
                     EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("Posição fora da faixa (Malha do Planalto) para exploração."));
             }
 

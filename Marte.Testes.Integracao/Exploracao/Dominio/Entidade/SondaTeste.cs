@@ -53,7 +53,7 @@ namespace Marte.Testes.Integracao.Exploracao.Dominio.Entidade
             var posicaoDesejada = new Posicao(1, 2);
             Sondas sondas = new Sondas(db);
             sonda = new Sonda(especificacaoDeNegocio, nomeDaSonda);
-            sonda.Explorar(especificacaoDeNegocio, planalto);
+            sonda.Explorar(planalto);
             sonda.IniciarEm(posicaoDesejada, DirecaoCardinal.Norte);
             sonda.Vire(DirecaoMovimento.Esqueda);
             sonda.Move(movimentoSempreParaFrente);

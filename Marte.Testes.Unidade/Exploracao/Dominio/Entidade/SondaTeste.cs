@@ -23,7 +23,7 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.Entidade
             planalto.Criar(coordenada);
             movimentoSempreParaFrente = new MovimentoParaFrente();
             sonda = new Sonda(especificacaoDeNegocio, "Mark I");
-            sonda.Explorar(especificacaoDeNegocio, planalto);
+            sonda.Explorar(planalto);
         }
 
         [TestMethod]

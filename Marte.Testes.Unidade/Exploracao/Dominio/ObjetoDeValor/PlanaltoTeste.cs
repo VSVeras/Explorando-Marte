@@ -27,7 +27,7 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.ObjetoDeValor
 
             sonda = new Sonda(especificacaoDeNegocio, "Mark I");
 
-            sonda.Explorar(especificacaoDeNegocio, planalto);
+            sonda.Explorar(planalto);
         }
 
         [TestMethod]
