@@ -15,6 +15,7 @@ namespace Marte.CamadaAnticorrupcao
         private readonly IConexaoComOBanco conexaoComOBanco;
         private readonly IMongoDatabase db;
         private readonly IEspecificacaoDeNegocio especificacaoDeNegocio;
+        private readonly int numeroDeLinhasNaMensagemEnviadaParaControlarAsSondas = 5;
 
         private Coordenada coordenada;
         private Posicao posicaoInicioalDaSonda;
@@ -22,8 +23,7 @@ namespace Marte.CamadaAnticorrupcao
         private IMovimento movimentoSempreParaFrente;
         private string[] serieDeInstrucoesIndicandoParaASondaComoElaDeveraExplorarOPlanalto;
         private string resultado;
-        private int numeroDeLinhasNaMensagemEnviadaParaControlarAsSondas = 5;
-
+ 
         public ExploradorDePlanalto(IConexaoComOBanco conexaoComOBanco, IMongoDatabase db, IEspecificacaoDeNegocio especificacaoDeNegocio)
         {
             this.conexaoComOBanco = conexaoComOBanco;
@@ -36,13 +36,13 @@ namespace Marte.CamadaAnticorrupcao
             try
             {
                 if (string.IsNullOrWhiteSpace(mensagem))
-                    throw new Exception("Mensagem inválida.");
+                    throw new ArgumentNullException("Mensagem inválida.");
 
                 string[] separadores = new string[] { "\n" };
                 string[] linhas = mensagem.Split(separadores, StringSplitOptions.None);
 
                 if (linhas.Length < numeroDeLinhasNaMensagemEnviadaParaControlarAsSondas)
-                    throw new Exception($"Mensagem inválida, só contém {linhas.Length} linha(s).");
+                    throw new IndexOutOfRangeException($"Mensagem inválida, só contém {linhas.Length} linha(s).");
 
                 ObterDadosInstrucoesPassadasPeloOperadorDaNasa(linhas);
 
@@ -151,7 +151,7 @@ namespace Marte.CamadaAnticorrupcao
         private void ObterSerieDeInstrucoesIndicandoParaASondaComoElaDeveraExplorarOPlanalto(string linha)
         {
             if (linha.Length < 1)
-                throw new Exception($"Mensagem inválida, série de instruções indicando para a sonda como ela deverá explorar o planalto só contém {linha.Length} caracter(s).");
+                throw new IndexOutOfRangeException($"Mensagem inválida, série de instruções indicando para a sonda como ela deverá explorar o planalto só contém {linha.Length} caracter(s).");
 
             var quantidadeDeCaracteres = linha.Length;
             serieDeInstrucoesIndicandoParaASondaComoElaDeveraExplorarOPlanalto = new string[quantidadeDeCaracteres];
@@ -166,8 +166,7 @@ namespace Marte.CamadaAnticorrupcao
             var caracteres = ObterCaracteresSeparadosPorEspaco(linha);
 
             if (caracteres.Length <= 2)
-                throw new Exception($"Mensagem inválida, posição inicial só contém {caracteres.Length} caracter(s).");
-
+                throw new IndexOutOfRangeException($"Mensagem inválida, posição inicial só contém {caracteres.Length} caracter(s).");
 
             int[] numeros = new int[2];
             string[] letras = new string[1];
@@ -183,14 +182,14 @@ namespace Marte.CamadaAnticorrupcao
                     case 0:
                     case 1:
                         if (!ENumero(item, out numero))
-                            throw new Exception("Mensagem inválida, posição inicial não contém valores númericos.");
+                            throw new ArithmeticException("Mensagem inválida, posição inicial não contém valores númericos.");
 
                         numeros[contador] = numero;
                         break;
                     case 2:
                         letrar = Convert.ToChar(item);
                         if (!char.IsLetter(letrar))
-                            throw new Exception("Mensagem inválida, posição inicial não contém caracter.");
+                            throw new ArgumentException("Mensagem inválida, posição inicial não contém caracter.");
 
                         letras[0] = item;
                         break;
@@ -229,7 +228,7 @@ namespace Marte.CamadaAnticorrupcao
             var caracteres = ObterCaracteresSeparadosPorEspaco(linha);
 
             if (caracteres.Length <= 1)
-                throw new Exception($"Mensagem inválida, coordenada do ponto superior-direito da malha do planalto só contém {caracteres.Length} caracter(s).");
+                throw new IndexOutOfRangeException($"Mensagem inválida, coordenada do ponto superior-direito da malha do planalto só contém {caracteres.Length} caracter(s).");
 
             int[] numeros = new int[2];
             int contador = 0;
@@ -238,7 +237,7 @@ namespace Marte.CamadaAnticorrupcao
                 int numero = 0;
 
                 if (!ENumero(item, out numero))
-                    throw new Exception("Mensagem inválida, coordenada do ponto superior-direito da malha do planalto não contém valores númericos.");
+                    throw new ArithmeticException("Mensagem inválida, coordenada do ponto superior-direito da malha do planalto não contém valores númericos.");
 
                 numeros[contador] = numero;
                 contador++;
