@@ -33,25 +33,21 @@ namespace Marte.CamadaAnticorrupcao
 
         public string Iniciar(string mensagem)
         {
-            try
+            if (string.IsNullOrWhiteSpace(mensagem))
             {
-                if (string.IsNullOrWhiteSpace(mensagem))
-                    throw new ArgumentNullException("Mensagem inválida.");
-
-                string[] separadores = new string[] { "\n" };
-                string[] linhas = mensagem.Split(separadores, StringSplitOptions.None);
-
-                if (linhas.Length < numeroDeLinhasNaMensagemEnviadaParaControlarAsSondas)
-                    throw new IndexOutOfRangeException($"Mensagem inválida, só contém {linhas.Length} linha(s).");
-
-                ObterDadosInstrucoesPassadasPeloOperadorDaNasa(linhas);
-
-                return resultado;
+                ArgumentNullException argumentNullException = new ArgumentNullException("Mensagem inválida.");
+                throw argumentNullException;
             }
-            catch (Exception)
-            {
-                throw;
-            }
+
+            string[] separadores = new string[] { "\n" };
+            string[] linhas = mensagem.Split(separadores, StringSplitOptions.None);
+
+            if (linhas.Length < numeroDeLinhasNaMensagemEnviadaParaControlarAsSondas)
+                throw new IndexOutOfRangeException($"Mensagem inválida, só contém {linhas.Length} linha(s).");
+
+            ObterDadosInstrucoesPassadasPeloOperadorDaNasa(linhas);
+
+            return resultado;
         }
 
         private void ObterDadosInstrucoesPassadasPeloOperadorDaNasa(string[] linhas)
