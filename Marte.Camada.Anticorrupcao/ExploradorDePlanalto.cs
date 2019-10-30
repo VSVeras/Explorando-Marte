@@ -20,10 +20,11 @@ namespace Marte.CamadaAnticorrupcao
         private Coordenada coordenada;
         private Posicao posicaoInicioalDaSonda;
         private DirecaoCardinal direcaoCardinalInicioalDaSonda;
+        private ICorretorDaProximaPosicaoDoMovimento corretorDaProximaPosicaoDoMovimento;
         private IMovimento movimentoSempreParaFrente;
         private string[] serieDeInstrucoesIndicandoParaASondaComoElaDeveraExplorarOPlanalto;
         private string resultado;
- 
+
         public ExploradorDePlanalto(IConexaoComOBanco conexaoComOBanco, IMongoDatabase db, IEspecificacaoDeNegocio especificacaoDeNegocio)
         {
             this.conexaoComOBanco = conexaoComOBanco;
@@ -89,7 +90,8 @@ namespace Marte.CamadaAnticorrupcao
             Planalto planalto = new Planalto();
             planalto.Criar(coordenada);
 
-            movimentoSempreParaFrente = new MovimentoParaFrente();
+            corretorDaProximaPosicaoDoMovimento = new CorretorDaProximaPosicaoDoMovimento();
+            movimentoSempreParaFrente = new MovimentoParaFrente(corretorDaProximaPosicaoDoMovimento);
 
             var nomeDaSonda = $"Mark {sondaNumero}";
 

@@ -20,17 +20,21 @@ namespace Marte.Testes.Integracao.Exploracao.Dominio.Entidade
         private IConexaoComOBanco conexaoComOBanco;
         private IMongoDatabase db;
         private IEspecificacaoDeNegocio especificacaoDeNegocio;
+        private ICorretorDaProximaPosicaoDoMovimento corretorDaProximaPosicaoDoMovimento;
+
         private string nomeDaSonda = "Mark 1";
 
         [TestInitialize]
         public void Iniciar()
         {
             especificacaoDeNegocio = new EspecificacaoDeNegocio();
+            corretorDaProximaPosicaoDoMovimento = new CorretorDaProximaPosicaoDoMovimento();
+
             var coordenada = new Coordenada(5, 5);
             planalto = new Planalto();
             planalto.Criar(coordenada);
 
-            movimentoSempreParaFrente = new MovimentoParaFrente();
+            movimentoSempreParaFrente = new MovimentoParaFrente(corretorDaProximaPosicaoDoMovimento);
 
             conexaoComOBanco = new ConexaoComOBanco();
             db = new ProvedorDeAcesso().Criar(conexaoComOBanco);

@@ -62,6 +62,8 @@
     <Compile Include="Exploracao\Dominio\Contrato\IEspecificacaoDeNegocio.cs" />
     <Compile Include="Exploracao\Dominio\ObjetoDeValor\DirecaoMovimento.cs" />
     <Compile Include="Exploracao\Dominio\Repositorio\ISondas.cs" />
+    <Compile Include="Exploracao\Dominio\Servico\CorretorDaProximaPosicaoDoMovimento.cs" />
+    <Compile Include="Exploracao\Dominio\Servico\ICorretorDaProximaPosicaoDoMovimento.cs" />
     <Compile Include="Exploracao\Dominio\Servico\MovimentoParaFrente.cs" />
     <Compile Include="Exploracao\Dominio\ObjetoDeValor\Coordenada.cs" />
     <Compile Include="Exploracao\Dominio\ObjetoDeValor\DirecaoCardinal.cs" />

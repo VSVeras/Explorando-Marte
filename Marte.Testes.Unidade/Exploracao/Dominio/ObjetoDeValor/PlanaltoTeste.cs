@@ -14,16 +14,19 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.ObjetoDeValor
         private Sonda sonda;
         private IMovimento movimentoSempreParaFrente;
         private IEspecificacaoDeNegocio especificacaoDeNegocio;
+        private ICorretorDaProximaPosicaoDoMovimento corretorDaProximaPosicaoDoMovimento;
 
         [TestInitialize]
         public void Iniciar()
         {
             especificacaoDeNegocio = new EspecificacaoDeNegocio();
+            corretorDaProximaPosicaoDoMovimento = new CorretorDaProximaPosicaoDoMovimento();
+
             var coordenada = new Coordenada(5, 5);
             planalto = new Planalto();
             planalto.Criar(coordenada);
 
-            movimentoSempreParaFrente = new MovimentoParaFrente();
+            movimentoSempreParaFrente = new MovimentoParaFrente(corretorDaProximaPosicaoDoMovimento);
 
             sonda = new Sonda(especificacaoDeNegocio, "Mark I");
 
