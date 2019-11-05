@@ -11,11 +11,11 @@ namespace Marte.Exploracao.Dominio.Servico
         {
             _correcaoDaProximaPosicao = correcaoDaProximaPosicao;
         }
+
         public void Executar(Sonda sonda)
         {
             sonda.PosicaoAtual = _correcaoDaProximaPosicao.Executar(sonda.PosicaoAtual, sonda.DirecaoCardinalAtual);
         }
-
     }
 }
 
