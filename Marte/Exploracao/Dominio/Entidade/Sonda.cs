@@ -68,6 +68,11 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         public void IniciarEm(Posicao posicaoDesejada, DirecaoCardinal direcaoCardinalAtual)
         {
+            if (Planalto == null)
+            {
+                return;
+            }
+
             if (posicaoDesejada == null)
             {
                 EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("A posição inicial da sonda não foi informada."));
