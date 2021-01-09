@@ -59,25 +59,25 @@ namespace Marte.Exploracao.Dominio.Entidade
         public void Explorar(Planalto planalto)
         {
             if (planalto == null)
+            {
                 EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("O planalto a ser explorado não foi informado."));
+            }
 
             Planalto = planalto;
         }
 
         public void IniciarEm(Posicao posicaoDesejada, DirecaoCardinal direcaoCardinalAtual)
         {
-            if (Planalto == null)
-                EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("O planalto a ser explorado não foi informado."));
-
-
             if (posicaoDesejada == null)
             {
                 EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("A posição inicial da sonda não foi informada."));
+                return;
             }
-            else
+
+            if (posicaoDesejada.X > Planalto.EixoX() || posicaoDesejada.Y > Planalto.EixoY())
             {
-                if (posicaoDesejada.X > Planalto.EixoX() || posicaoDesejada.Y > Planalto.EixoY())
-                    EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("Posição fora da faixa (Malha do Planalto) para exploração."));
+                EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("Posição fora da faixa (Malha do Planalto) para exploração."));
+                return;
             }
 
             PosicaoAtual = posicaoDesejada;

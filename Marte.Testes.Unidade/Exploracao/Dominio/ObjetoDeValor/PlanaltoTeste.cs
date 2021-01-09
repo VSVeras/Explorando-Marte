@@ -47,7 +47,6 @@ namespace Marte.Testes.Unidade.Exploracao.Dominio.ObjetoDeValor
             var regraDeNegocio = new RegraDeNegocio("Posição fora da faixa (Malha do Planalto) para exploração.");
 
             var posicaoDesejada = new Posicao(6, 2);
-            var posicaoEsperada = new Posicao(0, 2);
             sonda.IniciarEm(posicaoDesejada, DirecaoCardinal.Norte);
 
             Assert.IsTrue(sonda.HouveViolacao());
