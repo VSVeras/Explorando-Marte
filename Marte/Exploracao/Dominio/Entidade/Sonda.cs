@@ -10,7 +10,7 @@ namespace Marte.Exploracao.Dominio.Entidade
         public Guid Id { get; private set; }
         public string Nome { get; private set; }
         public Planalto Planalto { get; private set; }
-        public Posicao PosicaoAtual { get; internal set; }
+        public Posicao PosicaoAtual { get; private set; }
         public DirecaoCardinal DirecaoCardinalAtual { get; private set; }
 
         public IEspecificacaoDeNegocio EspecificacaoDeNegocio { get; private set; }
