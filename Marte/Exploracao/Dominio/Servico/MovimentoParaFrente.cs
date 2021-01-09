@@ -5,16 +5,16 @@ namespace Marte.Exploracao.Dominio.Servico
 {
     public class MovimentoParaFrente : IMovimento
     {
-        private readonly ICorretorDaProximaPosicaoDoMovimento _correcaoDaProximaPosicao;
+        private readonly ICorretorDaProximaPosicaoDoMovimento _corretorDaProximaPosicaoDoMovimento;
 
-        public MovimentoParaFrente(ICorretorDaProximaPosicaoDoMovimento correcaoDaProximaPosicao)
+        public MovimentoParaFrente(ICorretorDaProximaPosicaoDoMovimento corretorDaProximaPosicaoDoMovimento)
         {
-            _correcaoDaProximaPosicao = correcaoDaProximaPosicao;
+            _corretorDaProximaPosicaoDoMovimento = corretorDaProximaPosicaoDoMovimento;
         }
 
         public void Executar(Sonda sonda)
         {
-            sonda.PosicaoAtual = _correcaoDaProximaPosicao.Executar(sonda.PosicaoAtual, sonda.DirecaoCardinalAtual);
+            sonda.PosicaoAtual = _corretorDaProximaPosicaoDoMovimento.Executar(sonda.PosicaoAtual, sonda.DirecaoCardinalAtual);
         }
     }
 }
