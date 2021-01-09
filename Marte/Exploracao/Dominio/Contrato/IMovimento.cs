@@ -1,10 +1,11 @@
 ﻿using Marte.Exploracao.Dominio.Entidade;
+using Marte.Exploracao.Dominio.ObjetoDeValor;
 
 namespace Marte.Exploracao.Dominio.Contrato
 {
     public interface IMovimento
     {
-        void Executar(Sonda sonda);
+        Posicao Executar(Sonda sonda);
     }
 
 }

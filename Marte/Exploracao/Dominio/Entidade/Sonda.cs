@@ -96,7 +96,7 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         public void Move(IMovimento movimento)
         {
-            movimento.Executar(this);
+            PosicaoAtual = movimento.Executar(this);
         }
 
         public bool HouveViolacao()

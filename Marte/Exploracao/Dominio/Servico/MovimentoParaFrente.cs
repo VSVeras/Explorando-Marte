@@ -1,5 +1,6 @@
 ﻿using Marte.Exploracao.Dominio.Contrato;
 using Marte.Exploracao.Dominio.Entidade;
+using Marte.Exploracao.Dominio.ObjetoDeValor;
 
 namespace Marte.Exploracao.Dominio.Servico
 {
@@ -12,9 +13,9 @@ namespace Marte.Exploracao.Dominio.Servico
             _corretorDaProximaPosicaoDoMovimento = corretorDaProximaPosicaoDoMovimento;
         }
 
-        public void Executar(Sonda sonda)
+        public Posicao Executar(Sonda sonda)
         {
-            sonda.PosicaoAtual = _corretorDaProximaPosicaoDoMovimento.Executar(sonda.PosicaoAtual, sonda.DirecaoCardinalAtual);
+            return _corretorDaProximaPosicaoDoMovimento.Executar(sonda.PosicaoAtual, sonda.DirecaoCardinalAtual);
         }
     }
 }
