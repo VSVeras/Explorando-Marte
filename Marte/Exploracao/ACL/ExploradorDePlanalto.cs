@@ -8,7 +8,7 @@ using MongoDB.Driver;
 using System;
 
 
-namespace Marte.CamadaAnticorrupcao
+namespace Marte.Exploracao.ACL
 {
     public class ExploradorDePlanalto
     {

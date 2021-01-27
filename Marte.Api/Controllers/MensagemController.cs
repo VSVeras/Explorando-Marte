@@ -1,9 +1,8 @@
-﻿using Marte.CamadaAnticorrupcao;
+﻿using Marte.Exploracao.ACL;
 using Marte.Exploracao.Dominio.Contrato;
 using Marte.Exploracao.Dominio.ObjetoDeValor;
 using Marte.Exploracao.Persistencia.BancoDeDados;
 using Marte.Exploracao.Persistencia.Contratos;
-using Marte.PreocupacoesTransversal.Exploracao.Persistencia.BancoDeDados;
 using MongoDB.Driver;
 using System;
 using System.Linq;
@@ -31,7 +30,7 @@ namespace Marte.Api.Controllers
 
         [HttpPost]
         [Route("api/Mensagem")]
-        public Task<HttpResponseMessage> Post([FromBody]dynamic body)
+        public Task<HttpResponseMessage> Post([FromBody] dynamic body)
         {
             HttpResponseMessage ResponseMessage;
 

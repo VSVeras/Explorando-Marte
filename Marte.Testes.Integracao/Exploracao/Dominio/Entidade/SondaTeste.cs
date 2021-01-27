@@ -5,7 +5,6 @@ using Marte.Exploracao.Dominio.Servico;
 using Marte.Exploracao.Persistencia.BancoDeDados;
 using Marte.Exploracao.Persistencia.Contratos;
 using Marte.Exploracao.Persistencia.Repositorio;
-using Marte.PreocupacoesTransversal.Exploracao.Persistencia.BancoDeDados;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Driver;
 

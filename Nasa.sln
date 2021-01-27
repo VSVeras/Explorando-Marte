@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Testes.Unidade", "Marte.Testes.Unidade\Marte.Testes.Unidade.csproj", "{E2A2D524-4F3C-4FDD-98D8-991E58CE7E65}"
 EndProject
@@ -18,10 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Web", "Marte.Web\Marte.Web.csproj", "{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Central de Controle da Terra", "Central de Controle da Terra", "{E91FE0E3-C82A-4D6E-A907-D76A2DC59BF4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Camada.Anticorrupcao", "Marte.Camada.Anticorrupcao\Marte.Camada.Anticorrupcao.csproj", "{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Preocupacoes.Transversais", "Marte.Preocupacoes.Transversais\Marte.Preocupacoes.Transversais.csproj", "{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +45,6 @@ Global
 		{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,8 +55,6 @@ Global
 		{1859138C-59BA-4932-8B10-D2D677561902} = {902B4756-9998-4AD4-991E-E9C2C852638C}
 		{96EC1C63-A5D0-4622-BF7E-DEDE142E4386} = {DA9A0308-754D-47D6-978F-A0C9502BF99F}
 		{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB} = {E91FE0E3-C82A-4D6E-A907-D76A2DC59BF4}
-		{BB968CCD-8C7F-46E6-B2BD-16F60326FD95} = {DA9A0308-754D-47D6-978F-A0C9502BF99F}
-		{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8} = {DA9A0308-754D-47D6-978F-A0C9502BF99F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35384742-F25D-4E21-A013-FB52A2E6180A}

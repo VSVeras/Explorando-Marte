@@ -138,14 +138,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Marte.Camada.Anticorrupcao\Marte.Camada.Anticorrupcao.csproj">
-      <Project>{BB968CCD-8C7F-46E6-B2BD-16F60326FD95}</Project>
-      <Name>Marte.Camada.Anticorrupcao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Marte.Preocupacoes.Transversais\Marte.Preocupacoes.Transversais.csproj">
-      <Project>{F7C8E4BC-27AD-4607-BEFE-C1F1CC60F2C8}</Project>
-      <Name>Marte.Preocupacoes.Transversais</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Marte\Marte.csproj">
       <Project>{e484c58c-d18a-4548-bddd-0414791ae516}</Project>
       <Name>Marte</Name>

@@ -83,14 +83,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Marte.Camada.Anticorrupcao\Marte.Camada.Anticorrupcao.csproj">
-      <Project>{bb968ccd-8c7f-46e6-b2bd-16f60326fd95}</Project>
-      <Name>Marte.Camada.Anticorrupcao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Marte.Preocupacoes.Transversais\Marte.Preocupacoes.Transversais.csproj">
-      <Project>{f7c8e4bc-27ad-4607-befe-c1f1cc60f2c8}</Project>
-      <Name>Marte.Preocupacoes.Transversais</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Marte\Marte.csproj">
       <Project>{e484c58c-d18a-4548-bddd-0414791ae516}</Project>
       <Name>Marte</Name>
