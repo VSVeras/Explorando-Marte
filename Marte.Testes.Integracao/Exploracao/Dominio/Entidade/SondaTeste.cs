@@ -41,18 +41,7 @@ namespace Marte.Testes.Integracao.Exploracao.Dominio.Entidade
         }
 
         [TestMethod]
-        public void Deve_gravar_uma_sonda()
-        {
-            Sondas sondas = new Sondas(db);
-            sonda = new Sonda(especificacaoDeNegocio, nomeDaSonda);
-
-            sondas.Gravar(sonda);
-
-            Assert.IsFalse(sonda.HouveViolacao());
-        }
-
-        [TestMethod]
-        public void Deve_fazer_a_exploracao_com_a_sonda_iniciando_em_12N_com_a_serie_de_instruncoes_LMLMLMLMM_e_gravar_os_dados_no_banco()
+        public void Deve_gravar_no_banco_a_exploracao_da_sonda_iniciando_em_12N_com_a_serie_de_instruncoes_LMLMLMLMM()
         {
             var posicaoDesejada = new Posicao(1, 2);
             Sondas sondas = new Sondas(db);

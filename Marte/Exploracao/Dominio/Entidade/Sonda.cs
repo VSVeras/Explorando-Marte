@@ -20,6 +20,8 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         private Sonda()
         {
+            EspecificacaoDeNegocio = new EspecificacaoDeNegocio();
+
             movimentosExploratorio = new Dictionary<DirecaoMovimento, Action>
             {
                 {DirecaoMovimento.Direita, () => direcaoSentidoHorario[DirecaoCardinalAtual].Invoke()},
@@ -45,10 +47,8 @@ namespace Marte.Exploracao.Dominio.Entidade
 
         public Sonda(IEspecificacaoDeNegocio especificacaoDeNegocio, string nome) : this()
         {
-            if (especificacaoDeNegocio == null)
-                especificacaoDeNegocio = new EspecificacaoDeNegocio();
-
-            EspecificacaoDeNegocio = especificacaoDeNegocio;
+            if (especificacaoDeNegocio != null)
+                EspecificacaoDeNegocio = especificacaoDeNegocio;
 
             if (string.IsNullOrWhiteSpace(nome))
                 EspecificacaoDeNegocio.Adicionar(new RegraDeNegocio("O nome da sonda não foi informado."));
