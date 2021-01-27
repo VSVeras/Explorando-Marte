@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Api", "Marte.Api\Mart
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marte.Web", "Marte.Web\Marte.Web.csproj", "{D5E1FABB-2D81-4FC9-A15F-ED0784D4E3EB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Central de Controle da Terra", "Central de Controle da Terra", "{E91FE0E3-C82A-4D6E-A907-D76A2DC59BF4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controle da Terra", "Controle da Terra", "{E91FE0E3-C82A-4D6E-A907-D76A2DC59BF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
