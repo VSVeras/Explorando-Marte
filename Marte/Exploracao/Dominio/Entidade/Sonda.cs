@@ -13,7 +13,7 @@ namespace Marte.Exploracao.Dominio.Entidade
         public Posicao PosicaoAtual { get; private set; }
         public DirecaoCardinal DirecaoCardinalAtual { get; private set; }
 
-        public IEspecificacaoDeNegocio EspecificacaoDeNegocio { get; private set; }
+        public readonly IEspecificacaoDeNegocio EspecificacaoDeNegocio;
         private readonly IDictionary<DirecaoMovimento, Action> movimentosExploratorio;
         private readonly IDictionary<DirecaoCardinal, Action> direcaoSentidoHorario;
         private readonly IDictionary<DirecaoCardinal, Action> direcaoSentidoAntiHorario;

@@ -12,15 +12,15 @@ namespace Marte.Exploracao.Persistencia.BancoDeDados
             IMongoClient client = new MongoClient(conexaoComOBanco.Obter());
             IMongoDatabase database = client.GetDatabase("Marte");
 
-            if (!BsonClassMap.IsClassMapRegistered(typeof(Sonda)))
-            {
-                BsonClassMap.RegisterClassMap<Sonda>(cm =>
-                {
-                    cm.AutoMap();
-                    cm.SetIgnoreExtraElements(true);
-                    cm.UnmapMember(m => m.EspecificacaoDeNegocio);
-                });
-            }
+            //if (!BsonClassMap.IsClassMapRegistered(typeof(Sonda)))
+            //{
+            //    BsonClassMap.RegisterClassMap<Sonda>(cm =>
+            //    {
+            //        cm.AutoMap();
+            //        cm.SetIgnoreExtraElements(true);
+            //        cm.UnmapMember(m => m.EspecificacaoDeNegocio);
+            //    });
+            //}
 
             return database;
         }
