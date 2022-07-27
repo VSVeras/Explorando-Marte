@@ -8,11 +8,11 @@ using System.Linq.Expressions;
 
 namespace Marte.Exploracao.Persistencia.Repositorio
 {
-    public class Sondas : ISondas
+    public class SondasRepositorio : ISondasRepositorio
     {
         private readonly IMongoDatabase BancoDeDados;
 
-        public Sondas(IMongoDatabase bancoDeDados)
+        public SondasRepositorio(IMongoDatabase bancoDeDados)
         {
             BancoDeDados = bancoDeDados ?? throw new ArgumentException("A conexão com o banco de dados não foi informada.");
         }
@@ -21,7 +21,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
         {
             try
             {
-                return Todas().AsQueryable().Where(onde => onde.Nome.Equals(nome)).FirstOrDefault(); ;
+                return Sondas().AsQueryable().Where(onde => onde.Nome.Equals(nome)).FirstOrDefault(); ;
             }
             catch (Exception)
             {
@@ -38,12 +38,12 @@ namespace Marte.Exploracao.Persistencia.Repositorio
                 var sondaExiste = ObterPorNome(sonda.Nome);
                 if (sondaExiste == null)
                 {
-                    Todas().InsertOne(sonda);
+                    Sondas().InsertOne(sonda);
                 }
                 else
                 {
                     Expression<Func<Sonda, bool>> filtro = filtra => filtra.Id.Equals(sonda.Id);
-                    Todas().ReplaceOne(filtro, sonda);
+                    Sondas().ReplaceOne(filtro, sonda);
                 }
             }
             catch (Exception)
@@ -56,7 +56,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
         {
             try
             {
-                return Todas().AsQueryable().ToList();
+                return Sondas().AsQueryable().ToList();
             }
             catch (Exception)
             {
@@ -64,7 +64,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
             }
         }
 
-        private IMongoCollection<Sonda> Todas()
+        private IMongoCollection<Sonda> Sondas()
         {
             return BancoDeDados.GetCollection<Sonda>("Sonda");
         }

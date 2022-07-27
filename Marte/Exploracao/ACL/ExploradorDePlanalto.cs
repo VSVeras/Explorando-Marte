@@ -25,7 +25,8 @@ namespace Marte.Exploracao.ACL
         private string[] serieDeInstrucoesIndicandoParaASondaComoElaDeveraExplorarOPlanalto;
         private string resultado;
 
-        public ExploradorDePlanalto(IConexaoComOBanco conexaoComOBanco, IMongoDatabase db, IEspecificacaoDeNegocio especificacaoDeNegocio)
+        public ExploradorDePlanalto(IConexaoComOBanco conexaoComOBanco, IMongoDatabase db, 
+            IEspecificacaoDeNegocio especificacaoDeNegocio)
         {
             this.conexaoComOBanco = conexaoComOBanco;
             this.db = db;
@@ -85,7 +86,7 @@ namespace Marte.Exploracao.ACL
 
         private void ExecutarExploracao(int sondaNumero)
         {
-            Sondas sondas = new Sondas(db);
+            var sondasRepositorio = new SondasRepositorio(db);
 
             Planalto planalto = new Planalto();
             planalto.Criar(coordenada);
@@ -95,7 +96,7 @@ namespace Marte.Exploracao.ACL
 
             var nomeDaSonda = $"Mark {sondaNumero}";
 
-            Sonda sonda = ObterSonda(sondas, nomeDaSonda);
+            Sonda sonda = ObterSonda(sondasRepositorio, nomeDaSonda);
 
             sonda.Explorar(planalto);
 
@@ -103,9 +104,9 @@ namespace Marte.Exploracao.ACL
 
             ExecutarInstrucaoDeMovimentoNaSonda(sonda, movimentoSempreParaFrente);
 
-            sondas.Gravar(sonda);
+            sondasRepositorio.Gravar(sonda);
 
-            sondas = null;
+            sondasRepositorio = null;
 
             var direcao = sonda.DirecaoCardinalAtual.ToString().ToUpper().Substring(0, 1).Replace("O", "W").Replace("L", "E");
 
@@ -115,9 +116,9 @@ namespace Marte.Exploracao.ACL
             resultado += $"{sonda.PosicaoAtual.X} {sonda.PosicaoAtual.Y} {direcao}";
         }
 
-        private Sonda ObterSonda(Sondas sondas, string nomeDaSonda)
+        private Sonda ObterSonda(SondasRepositorio sondasRepositorio, string nomeDaSonda)
         {
-            Sonda sonda = sondas.ObterPorNome(nomeDaSonda);
+            Sonda sonda = sondasRepositorio.ObterPorNome(nomeDaSonda);
 
             if (sonda == null)
                 sonda = new Sonda(especificacaoDeNegocio, nomeDaSonda);

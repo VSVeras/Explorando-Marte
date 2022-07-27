@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Marte.Exploracao.Dominio.Repositorio
 {
-    public interface ISondas
+    public interface ISondasRepositorio
     {
         Sonda ObterPorNome(string nome);
         List<Sonda> ObterTodas();

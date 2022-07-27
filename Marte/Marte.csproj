@@ -71,7 +71,7 @@
     <Compile Include="Exploracao\ACL\ExploradorDePlanalto.cs" />
     <Compile Include="Exploracao\Dominio\Contrato\IEspecificacaoDeNegocio.cs" />
     <Compile Include="Exploracao\Dominio\ObjetoDeValor\DirecaoMovimento.cs" />
-    <Compile Include="Exploracao\Dominio\Repositorio\ISondas.cs" />
+    <Compile Include="Exploracao\Dominio\Repositorio\ISondasRepositorio.cs" />
     <Compile Include="Exploracao\Dominio\Servico\CorretorDaProximaPosicaoDoMovimento.cs" />
     <Compile Include="Exploracao\Dominio\Servico\ICorretorDaProximaPosicaoDoMovimento.cs" />
     <Compile Include="Exploracao\Dominio\Servico\MovimentoParaFrente.cs" />
@@ -84,7 +84,7 @@
     <Compile Include="Exploracao\Persistencia\BancoDeDados\ConexaoComOBanco.cs" />
     <Compile Include="Exploracao\Persistencia\Contratos\IConexaoComOBanco.cs" />
     <Compile Include="Exploracao\Persistencia\BancoDeDados\ProvedorDeAcesso.cs" />
-    <Compile Include="Exploracao\Persistencia\Repositorio\Sondas.cs" />
+    <Compile Include="Exploracao\Persistencia\Repositorio\SondasRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Exploracao\Dominio\ObjetoDeValor\RegraDeNegocio.cs" />
     <Compile Include="Exploracao\Dominio\Entidade\Sonda.cs" />
