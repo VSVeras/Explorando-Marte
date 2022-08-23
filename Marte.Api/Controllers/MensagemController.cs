@@ -40,7 +40,7 @@ namespace Marte.Api.Controllers
                 var retorno = explorador.Iniciar(conteudo);
 
                 if (especificacaoDeNegocio.HouveViolacao())
-                    ResponseMessage = Request.CreateResponse(HttpStatusCode.BadRequest, new { errors = especificacaoDeNegocio.RegrasDeNegocio.ToList() });
+                    ResponseMessage = Request.CreateResponse(HttpStatusCode.Conflict, new { errors = especificacaoDeNegocio.RegrasDeNegocio.ToList() });
                 else
                     ResponseMessage = Request.CreateResponse(HttpStatusCode.Created, retorno);
             }

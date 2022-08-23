@@ -1,6 +1,4 @@
-﻿using Marte.Exploracao.Dominio.Entidade;
-using Marte.Exploracao.Persistencia.Contratos;
-using MongoDB.Bson.Serialization;
+﻿using Marte.Exploracao.Persistencia.Contratos;
 using MongoDB.Driver;
 
 namespace Marte.Exploracao.Persistencia.BancoDeDados

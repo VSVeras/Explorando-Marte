@@ -21,7 +21,8 @@ namespace Marte.Exploracao.Persistencia.Repositorio
         {
             try
             {
-                return Sondas().AsQueryable().Where(onde => onde.Nome.Equals(nome)).FirstOrDefault(); ;
+                return Colecao().AsQueryable()
+                    .Where(onde => onde.Nome.Equals(nome)).FirstOrDefault(); ;
             }
             catch (Exception)
             {
@@ -38,12 +39,12 @@ namespace Marte.Exploracao.Persistencia.Repositorio
                 var sondaExiste = ObterPorNome(sonda.Nome);
                 if (sondaExiste == null)
                 {
-                    Sondas().InsertOne(sonda);
+                    Colecao().InsertOne(sonda);
                 }
                 else
                 {
-                    Expression<Func<Sonda, bool>> filtro = filtra => filtra.Id.Equals(sonda.Id);
-                    Sondas().ReplaceOne(filtro, sonda);
+                    Expression<Func<Sonda, bool>> filtro = colecao => colecao.Id.Equals(sonda.Id);
+                    Colecao().ReplaceOne(filtro, sonda);
                 }
             }
             catch (Exception)
@@ -56,7 +57,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
         {
             try
             {
-                return Sondas().AsQueryable().ToList();
+                return Colecao().AsQueryable().ToList();
             }
             catch (Exception)
             {
@@ -64,7 +65,7 @@ namespace Marte.Exploracao.Persistencia.Repositorio
             }
         }
 
-        private IMongoCollection<Sonda> Sondas()
+        private IMongoCollection<Sonda> Colecao()
         {
             return BancoDeDados.GetCollection<Sonda>("Sonda");
         }

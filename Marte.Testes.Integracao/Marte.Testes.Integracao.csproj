@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exploracao\Dominio\Entidade\SondaTeste.cs" />
+    <Compile Include="MeusTestes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xpto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
